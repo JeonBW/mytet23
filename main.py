@@ -16,12 +16,13 @@ import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-from dash.exceptions import PreventUpdate
 from datetime import datetime
-import ipywidgets as widgets
 from dateutil.relativedelta import *
+
+
 app = dash.Dash(server= server, external_stylesheets=[dbc.themes.UNITED])
 app.title = "중소기업 속보성 지표 대시보드"
+
 globals()["count"] = 0
 
 color_data = pd.read_excel("color.xlsx")
@@ -1201,5 +1202,5 @@ def update(change, clickData, value, clickData2, n_clicks1, n_clicks2, n_clicks3
 if __name__ == '__main__':
    #os.environ["FLASK_ENV"] = "development"
     #app.run()
-   app.run(host='0.0.0.0', port=5050, debug=True)
+   app.run_server( port=5050, debug=True)
 
